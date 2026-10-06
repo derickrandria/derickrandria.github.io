@@ -1,0 +1,135 @@
+<!--
+  ============================================================================
+   LSS Tracking Sync — PAGE D'ACCUEIL  (à publier telle quelle)
+  ============================================================================
+   ✅ FICHIER PRÊT À PUBLIER — aucun remplacement ne reste à faire.
+      Contact affiché : tracking@transport-lss.com et lss.tracking2@gmail.com
+
+   Comment modifier ce fichier :
+     • Sur GitHub (après l'avoir déposé) : ouvrir le fichier → icône crayon ✏
+       en haut à droite → modifier → « Commit changes ».
+     • Sur Windows : clic droit sur le fichier → Ouvrir avec → Bloc-notes,
+       puis Ctrl+H (Remplacer tout) et Ctrl+S (Enregistrer).
+     • ❌ Ne PAS ouvrir avec Word ni LibreOffice Writer (le fichier serait abîmé).
+
+   Aucune autre modification n'est nécessaire : ce fichier est autonome
+   (styles intégrés, aucune ressource externe, aucun script).
+  ============================================================================
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LSS Tracking Sync — Suivi automatisé des alertes de flotte</title>
+<style>
+  :root { --bleu:#1a73e8; --gris:#5f6368; --trait:#e0e0e0; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         color:#202124; line-height:1.65; background:#fff; }
+  header { background:linear-gradient(135deg,#1a73e8,#174ea6); color:#fff; padding:56px 24px 48px; }
+  header .contenu { max-width:820px; margin:0 auto; }
+  header h1 { margin:0 0 10px; font-size:30px; letter-spacing:-.3px; }
+  header p { margin:0; font-size:17px; opacity:.94; }
+  main { max-width:820px; margin:0 auto; padding:40px 24px 72px; }
+  h2 { font-size:20px; margin:36px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--trait); }
+  h3 { font-size:16px; margin:24px 0 8px; }
+  ul, ol { padding-left:22px; }
+  li { margin:6px 0; }
+  code { background:#f1f3f4; padding:2px 6px; border-radius:4px; font-size:14px;
+         font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  .etapes { counter-reset:etape; list-style:none; padding:0; }
+  .etapes li { counter-increment:etape; position:relative; padding:12px 0 12px 46px;
+               border-bottom:1px solid #f1f3f4; }
+  .etapes li::before { content:counter(etape); position:absolute; left:0; top:12px;
+    width:28px; height:28px; border-radius:50%; background:#e8f0fe; color:#174ea6;
+    font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center; }
+  .encadre { background:#f8f9fa; border-left:4px solid var(--bleu); border-radius:6px;
+             padding:14px 18px; margin:20px 0; font-size:15px; }
+  footer { border-top:1px solid var(--trait); color:var(--gris); font-size:13px;
+           text-align:center; padding:24px; }
+  a { color:var(--bleu); }
+  nav { max-width:820px; margin:0 auto; padding:14px 24px 0; font-size:14px; }
+  nav a { margin-right:16px; text-decoration:none; }
+  nav a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="contenu">
+    <h1>LSS Tracking Sync</h1>
+    <p>Suivi automatisé des alertes de flotte — de la boîte Gmail au tableau de suivi Google Sheets</p>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="confidentialite.html">Règles de confidentialité</a>
+</nav>
+
+<main>
+
+  <h2>Présentation</h2>
+  <p>
+    <strong>LSS Tracking Sync</strong> est un outil interne de suivi de flotte. Il s'agit d'un script
+    <em>Google Apps Script</em> qui lit les e-mails d'alerte de conduite envoyés par les superviseurs
+    de flotte (avis de panne, excès de vitesse, route glissante, comportement de conduite, arrêt
+    prolongé…) et enregistre automatiquement les informations utiles dans un tableau de suivi
+    <em>Google Sheets</em>, dans l'onglet correspondant à l'objet du message.
+  </p>
+  <p>
+    L'outil fonctionne entièrement dans Google Workspace, sur le compte de son exploitant. Il ne
+    propose aucune interface publique : il est exécuté par le propriétaire du projet et déclenché
+    automatiquement à intervalles réguliers.
+  </p>
+
+  <h2>Fonctionnement</h2>
+  <ol class="etapes">
+    <li>Lecture de la seule boîte Gmail autorisée, sur le libellé <code>Tracking-Alertes</code>.</li>
+    <li>Extraction des données de suivi de flotte contenues dans le corps des messages :
+        immatriculation du camion, lieu, route nationale (RN), nature de l'événement, cause,
+        mesure prise, date et heure.</li>
+    <li>Enregistrement d'une ligne par e-mail dans le Google Sheets de suivi, dans l'onglet
+        correspondant au type d'alerte.</li>
+    <li>Classement du message traité par un libellé Gmail (<code>Traité</code>,
+        <code>A trier</code>, <code>Erreur traitement</code>).</li>
+  </ol>
+
+  <h2>Données utilisées</h2>
+  <p>
+    L'outil accède uniquement aux messages de la boîte autorisée et à leurs métadonnées
+    (expéditeur, date, libellés, indicateur lu/non lu). Aucune autre donnée n'est consultée,
+    aucune donnée n'est transmise à un tiers, et rien n'est utilisé à des fins publicitaires.
+  </p>
+
+  <div class="encadre">
+    <strong>Usage interne.</strong> L'outil n'est pas distribué : il est exploité par son
+    propriétaire sur sa propre boîte de messagerie et son propre tableau de suivi. Le détail du
+    traitement des données figure dans les
+    <a href="confidentialite.html">règles de confidentialité</a>.
+  </div>
+
+  <h2>Technologie</h2>
+  <ul>
+    <li>Google Apps Script (exécution côté Google, aucun serveur propre)</li>
+    <li>API Gmail REST avec autorisation OAuth 2.0 (portée <code>gmail.modify</code>)</li>
+    <li>Google Sheets comme base de suivi</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>
+    Pour toute question relative à cet outil ou aux données traitées :
+    <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e1959380828a888f86a19593808f92918e9395cc8d9292cf828e8c">[email&#160;protected]</a></strong><br>
+    <span style="color:#5f6368">ou</span> <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c8a4bbbbe6bcbaa9aba3a1a6affa88afa5a9a1a4e6aba7a5">[email&#160;protected]</a></strong>
+  </p>
+
+</main>
+
+<footer>
+  LSS Tracking Sync — outil interne de suivi de flotte ·
+  <a href="confidentialite.html">Règles de confidentialité</a>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4632c8fda5ffdcd',t:'MTc5MTI3NDA2Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

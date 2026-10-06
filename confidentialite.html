@@ -1,0 +1,173 @@
+<!--
+  ============================================================================
+   LSS Tracking Sync — RÈGLES DE CONFIDENTIALITÉ  (à publier telle quelle)
+  ============================================================================
+   ✅ FICHIER PRÊT À PUBLIER — aucun remplacement ne reste à faire.
+      Mise à jour : 06/10/2026 · Contact : tracking@transport-lss.com et lss.tracking2@gmail.com
+
+   Comment modifier ce fichier : mêmes méthodes que index.html
+   (icône crayon ✏ sur GitHub, ou Bloc-notes + Ctrl+H sur Windows).
+
+   Aucune autre modification n'est nécessaire : ce fichier est autonome.
+  ============================================================================
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Règles de confidentialité — LSS Tracking Sync</title>
+<style>
+  :root { --bleu:#1a73e8; --gris:#5f6368; --trait:#e0e0e0; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         color:#202124; line-height:1.7; background:#fff; }
+  header { background:linear-gradient(135deg,#1a73e8,#174ea6); color:#fff; padding:44px 24px 36px; }
+  header .contenu { max-width:820px; margin:0 auto; }
+  header h1 { margin:0 0 8px; font-size:26px; letter-spacing:-.2px; }
+  header p { margin:0; font-size:15px; opacity:.94; }
+  main { max-width:820px; margin:0 auto; padding:36px 24px 72px; }
+  h2 { font-size:18px; margin:34px 0 10px; }
+  h2 span { color:var(--gris); font-weight:600; margin-right:8px; }
+  ul { padding-left:22px; }
+  li { margin:6px 0; }
+  code { background:#f1f3f4; padding:2px 6px; border-radius:4px; font-size:14px;
+         font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  .encadre { background:#e8f0fe; border-radius:8px; padding:16px 20px; margin:24px 0; font-size:15px; }
+  footer { border-top:1px solid var(--trait); color:var(--gris); font-size:13px;
+           text-align:center; padding:24px; }
+  a { color:var(--bleu); }
+  nav { max-width:820px; margin:0 auto; padding:14px 24px 0; font-size:14px; }
+  nav a { margin-right:16px; text-decoration:none; }
+  nav a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="contenu">
+    <h1>Règles de confidentialité — LSS Tracking Sync</h1>
+    <p>Dernière mise à jour : <strong>06/10/2026</strong></p>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="confidentialite.html">Règles de confidentialité</a>
+</nav>
+
+<main>
+
+  <h2><span>1.</span>Objet</h2>
+  <p>
+    LSS Tracking Sync (« l'Outil ») est un script Google Apps Script à usage interne, exploité par
+    son propriétaire pour le suivi de sa flotte de véhicules. Il lit des messages reçus dans une
+    boîte Gmail autorisée et enregistre les informations de suivi dans un fichier Google Sheets.
+    La présente page décrit les données traitées, leur finalité, leur conservation et les moyens de
+    contrôle dont dispose l'utilisateur.
+  </p>
+
+  <h2><span>2.</span>Données traitées</h2>
+  <p>L'Outil accède uniquement aux données suivantes, et seulement après autorisation explicite
+     du propriétaire de la boîte :</p>
+  <ul>
+    <li>le contenu des messages portant le libellé <code>Tracking-Alertes</code> dans la boîte
+        Gmail autorisée (adresse concernée : <code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="335f40401d47415250585a5d540173545e525a5f1d505c5e">[email&#160;protected]</a></code>) : objet, corps
+        du message, date, adresse de l'expéditeur ;</li>
+    <li>l'adresse e-mail du compte autorisé, afin de vérifier la connexion ;</li>
+    <li>les libellés Gmail (ajout de <code>Traité</code>, <code>A trier</code>,
+        <code>Erreur traitement</code>) et l'indicateur « lu / non lu » de ces messages.</li>
+  </ul>
+  <p>
+    Les informations extraites des messages se limitent aux données de suivi de flotte :
+    immatriculation du camion, nom du chauffeur s'il figure dans le message, lieu, route nationale,
+    description de l'incident, cause, mesure prise, date et heure.
+  </p>
+
+  <h2><span>3.</span>Utilisation des données</h2>
+  <p>
+    Ces données servent exclusivement au suivi interne de la flotte : constitution d'un historique
+    des alertes de conduite et de leurs suites, à des fins d'exploitation et de sécurité routière.
+    Aucune autre utilisation n'en est faite.
+  </p>
+
+  <h2><span>4.</span>Stockage</h2>
+  <p>Les données sont stockées exclusivement dans les services Google du propriétaire :</p>
+  <ul>
+    <li>le fichier Google Sheets de suivi désigné par l'exploitant, accessible aux seules personnes
+        à qui il en accorde l'accès ;</li>
+    <li>les propriétés du script Apps Script (jeton de renouvellement OAuth, identifiants du client
+        OAuth), jamais dans un fichier public.</li>
+  </ul>
+  <p>Aucune copie n'est transmise, exportée ni hébergée sur un serveur tiers.</p>
+
+  <h2><span>5.</span>Partage et communication</h2>
+  <p>
+    Aucune donnée n'est vendue, louée, échangée ni transmise à des tiers. Les données ne sont pas
+    utilisées à des fins publicitaires, ni pour entraîner des modèles d'intelligence artificielle ou
+    d'apprentissage automatique, ni pour évaluer la solvabilité ou la confiance des utilisateurs.
+  </p>
+
+  <h2><span>6.</span>Sécurité</h2>
+  <ul>
+    <li>L'accès à la boîte Gmail repose sur OAuth 2.0, avec la portée
+        <code>gmail.modify</code> limitée au compte autorisé.</li>
+    <li>Le jeton de renouvellement et le secret du client OAuth sont conservés dans les propriétés
+        du script Apps Script, accessibles uniquement au propriétaire du projet.</li>
+    <li>Les échanges se font exclusivement en HTTPS.</li>
+    <li>Un contrôle anti-CSRF (paramètre <code>state</code>) protège la phase d'autorisation.</li>
+  </ul>
+
+  <h2><span>7.</span>Durée de conservation</h2>
+  <p>
+    Les données de suivi sont conservées dans le Google Sheets de l'exploitant aussi longtemps que
+    celui-ci en a besoin ; il peut les supprimer à tout moment en effaçant les lignes concernées ou
+    l'onglet correspondant. Les jetons d'autorisation sont conservés jusqu'à leur révocation.
+  </p>
+
+  <h2><span>8.</span>Maîtrise et suppression par l'utilisateur</h2>
+  <p>
+    Le propriétaire de la boîte autorisée peut retirer l'accès de l'Outil à tout moment depuis
+    <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">
+    myaccount.google.com/permissions</a> (rubrique « Applications tierces ayant accès au compte »).
+    La suppression du script et/ou du fichier Google Sheets met fin au traitement et supprime les
+    données stockées. Les jetons mémorisés peuvent également être effacés par la fonction
+    <code>reinitialiserJeton()</code> du script.
+  </p>
+
+  <h2><span>9.</span>Conformité</h2>
+  <p>
+    L'Outil est exploité conformément à la Politique des données utilisateur des services API Google
+    (<em>Google API Services User Data Policy</em>), y compris ses exigences d'utilisation limitée
+    (<em>Limited Use</em>). Le propriétaire du projet est également le seul utilisateur de l'Outil :
+    aucune donnée n'est collectée auprès de tiers.
+  </p>
+
+  <h2><span>10.</span>Contact</h2>
+  <p>
+    Pour toute question relative à ces règles ou aux données traitées :
+    <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a2e283b393133343d1a2e283b34292a35282e7736292974393537">[email&#160;protected]</a></strong><br>
+    <span style="color:#5f6368">ou</span> <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef839c9cc19b9d8e8c84868188ddaf88828e8683c18c8082">[email&#160;protected]</a></strong>
+  </p>
+
+  <h2><span>11.</span>Modifications</h2>
+  <p>
+    Ces règles peuvent être mises à jour ; la date de dernière mise à jour figure en tête de page.
+  </p>
+
+  <div class="encadre">
+    Ces règles s'appliquent à l'outil interne <strong>LSS Tracking Sync</strong> et à aucune autre
+    application. Elles sont publiquement accessibles afin de satisfaire aux conditions du
+    programme OAuth 2.0 de Google.
+  </div>
+
+</main>
+
+<footer>
+  LSS Tracking Sync — outil interne de suivi de flotte ·
+  <a href="index.html">Accueil</a>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a46330addaa714e5',t:'MTc5MTI3NDIzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
